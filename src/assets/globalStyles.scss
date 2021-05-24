@@ -1,0 +1,57 @@
+.card {
+  .card-header {
+    color: #6abf69;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .card-title {
+    display: block;
+    font-size: 1.1rem;
+    color: #616161;
+    &:hover {
+      color: #212121;
+    }
+  }
+  .card-body {
+    &__text {
+      color: #6abf69;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .ng-fa-icon {
+    color: #cfcfcf;
+  }
+
+  .card-title {
+    cursor: pointer;
+  }
+}
+
+#add-news-form {
+  p.error {
+    font-size: 0.8rem;
+    color: #e74c3c;
+  }
+
+  .form-label {
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+  }
+
+  .form-control:focus {
+    transition: all 0.1s linear;
+    border-color: #6abf69;
+    box-shadow: inset 0px 0px 0px 1px #6abf69;
+  }
+}
+
+

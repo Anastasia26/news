@@ -1,0 +1,41 @@
+<div class="container">
+  <div *ngIf="news?.length; else elseBlock">
+    <div class="card mb-3" *ngFor="let newsItem of news">
+      <div class="card-image">
+        <img src="{{newsItem.image}}" class="card-img-top" alt="news image">
+      </div>
+      <div class="card-body">
+        <p class="card-body__text" *ngFor="let tag of newsItem.tags">{{tag.title}}</p>
+        <h5 class="card-title">{{newsItem.title}}</h5>
+        <p class="card-text">
+          {{newsItem.description}}
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="card-text">
+              <span class="card-text">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                        <small class="text-muted m-2">{{newsItem.viewCount}}</small>
+              </span>
+              <span class="card-text m-3">
+                        <fa-icon [icon]="faComment"></fa-icon>
+                        <small class="text-muted m-2">{{newsItem.commentsCount}}</small>
+              </span>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="card__date">{{newsItem.date | date:'HH:MM'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="card mb-3">
+    <img src="https://mdbootstrap.com/img/new/slides/041.jpg" class="card-img-top" alt="..."/>
+    <div class="card-body">
+      <h5 class="card-title">Нет информации</h5>
+    </div>
+  </div>
+</ng-template>

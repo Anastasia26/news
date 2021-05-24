@@ -1,0 +1,19 @@
+<form id="add-news-form" [formGroup]="form" (ngSubmit)="submitAddNewsForm()">
+  <div>
+    <label mdbLabel class="form-label" for="title">Заголовок</label>
+    <input formControlName="title" name="title" type="text" id="typeText" class="form-control"/>
+  </div>
+  <p class="error" *ngIf="!form.controls['title'].valid && form.controls['title'].touched">Введите заголовок статьи</p>
+  <p class="error" *ngIf="form.hasError('minlength', 'title')">Заголовок должен содержать не менее 2 символов</p>
+  <div class="mt-4">
+    <label mdbLabel class="form-label" for="description">Описание</label>
+    <textarea formControlName="description" name="description" class="form-control" rows="4"></textarea>
+  </div>
+  <p class="error" *ngIf="!form.controls['description'].valid && form.controls['description'].touched">
+    Введите описание статьи
+  </p>
+  <p class="error mr-4" *ngIf="form.hasError('minlength', 'description')">
+    Описание должно содержать не менее 10 символов
+  </p>
+  <button type="submit" [disabled]="form.invalid" class="btn btn-success mt-4">Опубликовать</button>
+</form>

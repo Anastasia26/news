@@ -1,0 +1,22 @@
+<div *ngIf="lastNews?.length; else elseBlock">
+  <mdb-carousel [controls]="true" [indicators]="true">
+    <mdb-carousel-item *ngFor="let newsItem of lastNews">
+      <img src="{{newsItem.image}}" class="d-block w-100" alt="..."/>
+      <div class="card border border-light shadow-0 mb-3">
+        <div class="card-header" *ngFor="let tag of newsItem.tags">{{tag.title}}</div>
+        <div class="card-body">
+          <a class="card-title" [routerLink]="['/article', newsItem.ID]">{{newsItem.title}}</a>
+          <span class="card-text">
+               <fa-icon [icon]="faEye"></fa-icon>
+               <small class="text-muted m-2">{{newsItem.viewCount}}</small>
+          </span>
+          <span class="card-text m-3">
+               <fa-icon [icon]="faComment"></fa-icon>
+               <small class="text-muted m-2">{{newsItem.commentsCount}}</small>
+          </span>
+        </div>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+</div>
+<ng-template #elseBlock>Нет новостей</ng-template>

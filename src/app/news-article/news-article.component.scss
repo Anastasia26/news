@@ -1,0 +1,34 @@
+.card {
+  text-align: center;
+
+  .card-title {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+      height: 350px;
+      object-fit: cover;
+      margin: 20px;
+    }
+  }
+
+  &__date {
+    color: #6abf69;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    .card-title {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

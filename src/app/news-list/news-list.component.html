@@ -1,0 +1,23 @@
+<div *ngIf="news?.length; else elseBlock">
+  <div class="card mb-3" *ngFor="let newsItem of news">
+    <p class="card__date">{{newsItem.date | date:'HH:MM'}}</p>
+    <div class="card-body">
+      <p class="card-body__text" *ngFor="let tag of newsItem.tags">{{tag.title}}</p>
+      <a class="card-title mt-2" [routerLink]="['/article', newsItem.ID]">{{newsItem.title}}</a>
+      <span class="card-text"><fa-icon [icon]="faEye"></fa-icon><small
+        class="text-muted m-2">{{newsItem.viewCount}}</small></span>
+      <span class="card-text m-3"><fa-icon [icon]="faComment"></fa-icon><small
+        class="text-muted m-2">{{newsItem.commentsCount}}</small></span>
+    </div>
+    <div class="card-image">
+      <img src="{{newsItem.imageSmall}}" alt="news image">
+    </div>
+  </div>
+</div>
+<div class="add-news-form mt-5">
+  <h4>Добавить новость</h4>
+  <hr>
+  <app-news-list-add (submitForm)="onAdd($event)"></app-news-list-add>
+</div>
+<ng-template #elseBlock>No news</ng-template>
+
